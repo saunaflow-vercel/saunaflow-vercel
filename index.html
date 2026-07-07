@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sauna + Flow — Reset where you play</title>
+<meta name="description" content="Mobile sauna and cold plunge experience for London's sports venues and communities. Heat. Cold. Connect." />
+<meta property="og:title" content="Sauna + Flow" />
+<meta property="og:description" content="Mobile sauna and cold plunge experience for London's sports venues and communities." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="assets/mark-flame-gold.png" />
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="site.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="sections1.jsx"></script>
+<script type="text/babel" src="sections2.jsx"></script>
+<script type="text/babel" src="carousel.jsx"></script>
+<script type="text/babel">
+// ── Google Sheets sign-up endpoint ──────────────────────────────
+// Paste your Google Apps Script Web App URL here to log priority sign-ups
+// from the partnership banner form to a spreadsheet. Leave "" to run in
+// demo mode (form still validates + shows success, but doesn't POST).
+// Setup: Google Sheet → Extensions → Apps Script → paste a doPost(e) that
+// appends e.parameter to the sheet → Deploy → New deployment → Web app →
+// Execute as: Me, Access: Anyone → copy the /exec URL and paste it below.
+// (Full walk-through in README.md.)
+window.SF_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxOTjz9ntAR0yxL5rDtFdkruGVKkpCP6SNr6RPan_w-oVO51QgP-KEkqTGSHtRFdaTL/exec";
+
+// ── Contact form ("Connect" section at the bottom) ──────────────
+// The bottom contact form (name / email / phone / project message) posts here.
+// Point it at a SECOND Google Form's /formResponse URL (or Apps Script) to
+// collect enquiries. Leave "" for demo mode. See README.md / SETUP_PROMPT.
+window.SF_CONTACT_ENDPOINT = "";
+
+const TWEAK_DEFAULTS = {
+  "motion": "calm",
+  "grain": true,
+  "parallax": true
+};
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const contactRef = React.useRef(null);
+  const [toast, setToast] = React.useState(false);
+  const [partnerOpen, setPartnerOpen] = React.useState(false);
+
+  // expose motion settings to imperative handlers (scroll / mousemove)
+  window.SFM = { motion: t.motion, parallax: t.parallax };
+
+  React.useEffect(() => {
+    document.documentElement.dataset.motion = t.motion;
+  }, [t.motion]);
+
+  const book = () => { scrollToId("contact"); setToast(true); setTimeout(() => setToast(false), 2200); };
+  const discover = () => scrollToId("experience");
+
+  return (
+    <React.Fragment>
+      <ScrollProgress />
+      {t.grain && <Grain />}
+      <AnnouncementBanner onOpen={() => setPartnerOpen(true)} />
+      <Navbar onBook={book} />
+      <Hero onDiscover={discover} />
+      <Ritual />
+      <Benefits />
+      <Plans onBook={book} />
+      <Story />
+      <BrandCarousel />
+      <Host />
+      <FAQ />
+      <Contact formRef={contactRef} />
+      <Footer />
+      <PartnershipModal open={partnerOpen} onClose={() => setPartnerOpen(false)} />
+      <div className={"toast " + (toast ? "show" : "")}>Let's get you booked in →</div>
+
+      <TweaksPanel>
+        <TweakSection label="Motion" />
+        <TweakRadio label="Intensity" value={t.motion} options={["calm", "cinematic", "bold"]} onChange={(v) => setTweak("motion", v)} />
+        <TweakToggle label="Hero parallax" value={t.parallax} onChange={(v) => setTweak("parallax", v)} />
+        <TweakSection label="Atmosphere" />
+        <TweakToggle label="Film grain" value={t.grain} onChange={(v) => setTweak("grain", v)} />
+      </TweaksPanel>
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

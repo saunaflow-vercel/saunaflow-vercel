@@ -1,0 +1,206 @@
+/* ============================================================
+   SAUNA + FLOW — Colors & Type foundation
+   Source of truth: the official BRAND BOARD (May 2026).
+   Palette is built on contrast: HEAT (gold) · COAL (charcoal/black)
+   · STONE (warm grey) · STEAM (cream). Warm, moody, Finnish-modern.
+   Load this file, then use the var()s below.
+   ============================================================ */
+
+/* Argue (display serif) is self-hosted from the uploaded font.
+   DM Sans stays on Google Fonts (no file uploaded — CDN is fine). */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@font-face {
+  font-family: 'Argue';
+  src: url('fonts/Argue-Regular.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* Argue ships Regular only. Map italic + bold requests to the same file so
+   "italic"/weighted serif text renders in ARGUE (upright) rather than falling
+   back to Georgia/Times. Argue is a high-contrast display serif — it reads as
+   an intentional accent without a slant, matching the logo wordmark. */
+@font-face {
+  font-family: 'Argue';
+  src: url('fonts/Argue-Regular.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+/* 'Argue SB' = same single-master file, but the face is declared at weight 400
+   ONLY. Requesting a heavier weight (600/700) on this family makes the browser
+   SYNTHESISE a bolder face — a real visible semibold even though Argue ships
+   Regular only. Used for buttons. Swap in a true Argue Semibold here if/when
+   the file arrives. */
+@font-face {
+  font-family: 'Argue SB';
+  src: url('fonts/Argue-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Argue SB';
+  src: url('fonts/Argue-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     CANONICAL BRAND PALETTE — the four named brand colours.
+     Surfaces are warm: STEAM/cream by day, COAL by night.
+     HEAT gold is the single accent. STONE is the muted neutral.
+     ============================================================ */
+  --heat:        #E6C15A; /* HEAT — primary gold accent             */
+  --heat-deep:   #C9A23E; /* deeper gold — gradient end / hover     */
+  --heat-soft:   #F0DCA0; /* soft gold — tints, washes              */
+  --heat-wash:   rgba(230,193,90,0.18); /* icon chips, hover tints  */
+
+  --coal:        #3E3D3D; /* COAL — primary dark surface & ink      */
+  --coal-deep:   #231F20; /* INK — near-black: footer, poster, hero */
+  --coal-ink:    #2C2A2B; /* raised dark panel                      */
+  --coal-line:   rgba(255,255,255,0.12); /* hairline on coal        */
+
+  --stone:       #9A9389; /* STONE — warm mid grey                  */
+  --stone-soft:  #C4BEB4; /* lighter stone — borders, dividers      */
+
+  --steam:       #E7E2D8; /* STEAM — palest warm neutral (light bg) */
+  --cream:       #EFEADF; /* soft cream — alternate light surface    */
+  --bone:        #F6F3EC; /* lightest warm white — cards on cream   */
+  --white:       #FFFFFF;
+
+  /* ---- Text on dark (coal) -------------------------------- */
+  --on-dark-1:   #F4F1EA;               /* primary — warm white     */
+  --on-dark-2:   rgba(244,241,234,0.72);/* secondary                */
+  --on-dark-3:   rgba(244,241,234,0.50);/* muted / captions         */
+
+  /* ---- Text on light (cream / steam) ---------------------- */
+  --on-light-1:  #231F20;               /* primary — ink            */
+  --on-light-2:  rgba(35,31,32,0.70);   /* secondary                */
+  --on-light-3:  rgba(35,31,32,0.48);   /* muted                    */
+
+  /* ---- Aliases / accent ----------------------------------- */
+  --gold:        var(--heat);           /* alias — "gold" == HEAT    */
+  --gold-heat:   #E6C15A;
+  --gold-light:  #F0DCA0;
+  --gold-wash:   rgba(230,193,90,0.18);
+
+  /* ---- Legacy (prior Figma Make site — pine-green direction).
+     Kept so the website UI kit keeps rendering. NOT canonical;
+     prefer the brand palette above for all new work. -------- */
+  --pine:        #15322D;
+  --pine-deep:   #1C423B;
+  --pine-line:   rgba(255,255,255,0.10);
+  --coal-soft:   #121212;
+  --sand:        #E3DEA7;
+
+  /* ---- Type families -------------------------------------- */
+  --font-serif: 'Argue', Georgia, 'Times New Roman', serif;   /* display */
+  --font-serif-sb: 'Argue SB', 'Argue', Georgia, serif; /* faux-semibold serif (buttons) */
+  --font-sans:  'DM Sans', system-ui, sans-serif; /* body  */
+
+  /* ---- Radii ---------------------------------------------- */
+  --r-sm: 8px;
+  --r-md: 16px;     /* cards                                    */
+  --r-lg: 24px;     /* large panels / form card                 */
+  --r-xl: 48px;     /* big rounded section tops                 */
+  --r-pill: 9999px; /* buttons, chips, logo disc                */
+
+  /* ---- Shadow / elevation -------------------------------- */
+  --shadow-nav:  0 4px 6px -4px rgba(0,0,0,0.10), 0 10px 15px -3px rgba(0,0,0,0.10);
+  --shadow-card: 0 12px 30px -12px rgba(0,0,0,0.25);
+  --shadow-soft: 0 3px 3px rgba(0,0,0,0.12);
+
+  /* ---- Motion -------------------------------------------- */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur:  0.3s;   /* hover / micro                              */
+  --dur-rise: 0.8s; /* on-scroll reveal                         */
+}
+
+/* ============================================================
+   SEMANTIC TYPE SCALE
+   Built on Argue (display) + DM Sans (UI/body).
+   Display headings lean large, tight, often italic for accents.
+   ============================================================ */
+
+.sf-display {            /* hero wordmark — clamp for fluid scale */
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 10vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+
+.sf-h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 6vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.sf-h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.sf-h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.2;
+}
+
+/* Italic serif accent — the brand's signature flourish */
+.sf-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+/* Eyebrow / kicker — tracked uppercase DM Sans */
+.sf-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;        /* 12px */
+  letter-spacing: 0.2em;     /* ~2.4px */
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.sf-lead {                   /* intro paragraph */
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  line-height: 1.6;
+}
+
+.sf-body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.sf-small {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Button / nav label — tracked uppercase */
+.sf-label {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
