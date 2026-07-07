@@ -42,8 +42,7 @@ function Hero({ onDiscover }) {
               <img className="hero__wm" src={asset("assets/logo-wordmark-trim.svg")} alt="Sauna + Flow" />
             </div>
             <div style={{ maxWidth: 580, marginTop: 22 }}>
-              <h2 className="hero__accent">{splitWords("Reset where you play.")}</h2>
-              <p className="hero__lead">Mobile sauna and cold plunge experience for London's sports venues and communities.</p>
+              <h2 className="hero__accent">{splitWords("Coming soon to Ealing Cricket Club")}</h2>
               <button className="textlink" onClick={onDiscover}>Discover <span ref={cueRef} className="arrow-circ" style={{ transition: "transform .35s var(--ease), border-color var(--dur)" }}><Icon name="arrow" size={16} /></span></button>
             </div>
           </div>
