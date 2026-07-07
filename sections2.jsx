@@ -54,28 +54,6 @@ function Story() {
 
 }
 
-function Host() {
-  const items = ["Football, Cricket & Rugby Clubs", "CrossFit & Strength Gyms", "Corporate Wellbeing"];
-  return (
-    <section id="partner" className="section host">
-      <div className="wrap host__grid">
-        <div>
-          <Eyebrow tone="ink">Partner Programme</Eyebrow>
-          <h2 className="host__h">Host <br />The <em>flow.</em></h2>
-          <p className="host__lead">Differentiate your sports venue with London's premier mobile recovery zone. We handle the logistics; you provide the space.</p>
-          <ul style={{ listStyle: "none" }}>
-            {items.map((it) => <li className="host-li" key={it}><span>{it}</span><span className="ha"><Icon name="arrow" size={20} /></span></li>)}
-          </ul>
-        </div>
-        <Reveal variant="img" className="host__img">
-          <img src={asset("assets/host-container.png")} alt="Sauna Box container sauna inside a gym" />
-          <div className="host__quote"><p>"For clubs, it becomes a reason for members to stay, talk, and feel part of something."</p></div>
-        </Reveal>
-      </div>
-    </section>);
-
-}
-
 function FAQ() {
   const [open, setOpen] = React.useState([0]);
   const faqs = [
@@ -165,4 +143,4 @@ function Contact({ formRef }) {
 
 }
 
-Object.assign(window, { Plans, Story, Host, FAQ, Contact });
+Object.assign(window, { Plans, Story, FAQ, Contact });
