@@ -315,7 +315,7 @@ function PartnershipModal({ open, onClose }) {
     try {
       if (endpoint) {
         const body = JSON.stringify({ name: name.trim(), email: email.trim(), partner: "Ealing Cricket Club", source: "Announcement banner" });
-        await fetch(endpoint, { method: "POST", mode: "no-cors", redirect: "manual", headers: { "Content-Type": "text/plain;charset=utf-8" }, body });
+        await fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body });
       } else {
         await new Promise((r) => setTimeout(r, 650)); // demo mode — no endpoint configured
       }
