@@ -36,9 +36,8 @@ function Hero({ onDiscover }) {
       <div className="hero__content" ref={contentRef}>
         <div className="wrap">
           <div style={{ maxWidth: 900 }}>
-            <div className="kicker-row"><span className="divider" style={{ color: "#fff" }} /><Eyebrow tone="light" style={{ letterSpacing: ".25em" }}>Est. 2026</Eyebrow></div>
+            <div className="kicker-row"><Eyebrow tone="light" style={{ letterSpacing: ".25em" }}>Est. 2026</Eyebrow></div>
             <div className="hero__lockup">
-              <img className="hero__flame" src={asset("assets/mark-flame-gold.png")} alt="" />
               <img className="hero__wm" src={asset("assets/logo-wordmark-trim.svg")} alt="Sauna + Flow" />
             </div>
             <div style={{ maxWidth: 580, marginTop: 22 }}>
