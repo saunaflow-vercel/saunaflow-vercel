@@ -155,7 +155,7 @@ function ScrollProgress() {
 }
 
 /* ---------- Navbar ---------- */
-const NAV_LINKS = [["The Ritual", "experience"], ["Benefits", "benefits"], ["Membership", "plans"], ["Our Story", "about"], ["Partner", "partner"]];
+const NAV_LINKS = [["The Ritual", "experience"], ["Benefits", "benefits"], ["Membership", "plans"], ["Our Story", "about"]];
 function Navbar({ onBook }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -206,7 +206,7 @@ function Footer() {
           <div className="footer__cols">
             <div className="footer__col">
               <Eyebrow>Sitemap</Eyebrow>
-              <ul>{[["About", "about"], ["The Ritual", "experience"], ["Science", "benefits"], ["Partners", "partner"]].map(([l, id]) =>
+              <ul>{[["About", "about"], ["The Ritual", "experience"], ["Science", "benefits"]].map(([l, id]) =>
                 <li key={id}><a className="flink" onClick={() => scrollToId(id)} style={{ cursor: "pointer" }}>{l}</a></li>)}</ul>
             </div>
             <div className="footer__col">
