@@ -31,7 +31,7 @@ function Hero({ onDiscover }) {
   }, []);
   return (
     <header className="hero" ref={heroRef}>
-      <div className="hero__bg" ref={bgRef}><img src={asset("assets/hero-ealing-cricket-club.png")} alt="Sauna + Flow mobile sauna and cold plunge set up at Ealing Cricket Club, dusk" /></div>
+      <div className="hero__bg" ref={bgRef}><img src={asset("assets/hero-ealing-cricket-club.jpg")} alt="Sauna + Flow mobile sauna and cold plunge set up at Ealing Cricket Club, dusk" /></div>
       <div className="hero__scrim" /><div className="hero__grad" />
       <div className="hero__content" ref={contentRef}>
         <div className="wrap">
