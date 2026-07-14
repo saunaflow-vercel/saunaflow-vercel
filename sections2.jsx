@@ -10,7 +10,7 @@ function Plans({ onBook }) {
     <section id="plans" className="section plans">
       <div className="wrap">
         <div className="plans__head">
-          <h2 className="plans__h" style={{ fontSize: "65px" }}>Rest. Reset. <em style={{ fontSize: "65px" }}>Restore.</em></h2>
+          <h2 className="plans__h">Rest. Reset. <em>Restore.</em></h2>
           <p style={{ color: "var(--on-dark-3)", maxWidth: 520, margin: "0 auto" }}>Return home to the elements of nature.</p>
         </div>
         <div className="plan-grid">
