@@ -2,7 +2,7 @@
 
 function splitWords(text) {
   return text.split(" ").map((w, i) =>
-  <span className="word" key={i}><span style={{ "--d": i * 55 + "ms" }}>{w}&nbsp;</span></span>
+  <span className="word" key={i}><span style={{ "--d": i * 55 + "ms" }}>{w} </span></span>
   );
 }
 
