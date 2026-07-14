@@ -1,42 +1,5 @@
 /* Sauna + Flow — sections 2: Plans, Story, Host, FAQ, Contact */
 
-function Plans({ onBook }) {
-  const plans = [
-  { name: "The Drop-In", price: "£19", desc: "Perfect for the curious or the occasional visitor.", features: ["1 × 60min Session", "Towel Service", "Hydration included"] },
-  { name: "The Reset Pack", price: "£79", desc: "Commit to your recovery. 5 sessions to use anytime.", features: ["5 × 60min Sessions", "Priority Booking", "Guest Pass ×1", "10% off Merch"], popular: true },
-  { name: "Private Hire", price: "From £400", desc: "Exclusive use of the sauna and plunge for your team.", features: ["Up to 10 people", "90min Session", "Guided Ritual", "Bespoke Playlist"] }];
-
-  return (
-    <section id="plans" className="section plans">
-      <div className="wrap">
-        <div className="plans__head">
-          <h2 className="plans__h">Rest. Reset. <em>Restore.</em></h2>
-          <p style={{ color: "var(--on-dark-3)", maxWidth: 520, margin: "0 auto" }}>Return home to the elements of nature.</p>
-        </div>
-        <div className="plan-grid">
-          {plans.map((p, i) =>
-          <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
-              {p.popular && <span className="plan__badge">Popular</span>}
-              <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
-              <div className="plan__price">{p.price}</div>
-              <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
-              <div className="plan__feats">
-                {p.features.map((f) =>
-              <div className="plan__feat" key={f}>
-                    <span className="tick" style={{ width: 20, height: 20, borderRadius: "50%", display: "grid", placeItems: "center", background: p.popular ? "rgba(35,31,32,.12)" : "var(--gold-wash)", color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}><Icon name="check" size={12} /></span>
-                    {f}
-                  </div>
-              )}
-              </div>
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Choose plan</Button>
-            </Reveal>
-          )}
-        </div>
-      </div>
-    </section>);
-
-}
-
 function Story() {
   return (
     <section id="about" className="section story">
@@ -60,7 +23,7 @@ function FAQ() {
   { q: "What should I bring?", a: "Bring swimwear, two towels (one for sitting, one for drying), a water bottle, and slides/flip-flops. We provide the rest." },
   { q: "Is it suitable for beginners?", a: "Absolutely. Our guides are trained to help you manage your heat and cold exposure safely. You are in control of your own limits." },
   { q: "Do you offer partner programmes for sports clubs?", a: "Yes, we work with elite football, rugby, and strength gyms to provide on-site recovery zones. We handle all logistics and staffing." },
-  { q: "Can I book a private session?", a: "Yes, we offer private hire for groups, teams, or events. Check the membership section for starting rates." },
+  { q: "Can I book a private session?", a: "Yes, we offer private hire for groups, teams, or events. Get in touch and we'll talk you through rates." },
   { q: "What are the health contraindications?", a: "If you have heart conditions, high blood pressure, or are pregnant, please consult your doctor before using the sauna or ice bath." }];
 
   const toggle = (i) => setOpen((o) => o.includes(i) ? o.filter((x) => x !== i) : [...o, i]);
@@ -143,4 +106,4 @@ function Contact({ formRef }) {
 
 }
 
-Object.assign(window, { Plans, Story, FAQ, Contact });
+Object.assign(window, { Story, FAQ, Contact });

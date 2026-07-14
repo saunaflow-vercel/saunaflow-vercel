@@ -155,7 +155,7 @@ function ScrollProgress() {
 }
 
 /* ---------- Navbar ---------- */
-const NAV_LINKS = [["The Ritual", "experience"], ["Benefits", "benefits"], ["Membership", "plans"], ["Our Story", "about"]];
+const NAV_LINKS = [["The Ritual", "experience"], ["Benefits", "benefits"], ["Our Story", "about"]];
 function Navbar({ onBook }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
