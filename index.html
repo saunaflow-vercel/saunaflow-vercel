@@ -35,13 +35,12 @@
 // appends e.parameter to the sheet → Deploy → New deployment → Web app →
 // Execute as: Me, Access: Anyone → copy the /exec URL and paste it below.
 // (Full walk-through in README.md.)
-window.SF_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxOTjz9ntAR0yxL5rDtFdkruGVKkpCP6SNr6RPan_w-oVO51QgP-KEkqTGSHtRFdaTL/exec";
+window.SF_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzxd45xSbqYARrJBXGlTLNe4gmWjbpKHOvrQmx4QVJ6ZZ7h0EFk-iT9GpE41QhZdkCsjA/exec";
 
 // ── Contact form ("Connect" section at the bottom) ──────────────
-// The bottom contact form (name / email / phone / project message) posts here.
-// Point it at a SECOND Google Form's /formResponse URL (or Apps Script) to
-// collect enquiries. Leave "" for demo mode. See README.md / SETUP_PROMPT.
-window.SF_CONTACT_ENDPOINT = "";
+// Posts enquiries to the same Apps Script as the sign-up modal; the
+// script routes them to an "Enquiries" tab based on form: "contact".
+window.SF_CONTACT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzxd45xSbqYARrJBXGlTLNe4gmWjbpKHOvrQmx4QVJ6ZZ7h0EFk-iT9GpE41QhZdkCsjA/exec";
 
 const TWEAK_DEFAULTS = {
   "motion": "calm",

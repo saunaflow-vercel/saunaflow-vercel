@@ -62,8 +62,8 @@ function Contact({ formRef }) {
     const endpoint = window.SF_CONTACT_ENDPOINT;
     try {
       if (endpoint) {
-        const body = new URLSearchParams({ ...vals, source: "Contact form", timestamp: new Date().toISOString() });
-        await fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body });
+        const body = JSON.stringify({ form: "contact", ...vals });
+        await fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body });
       }
     } catch (_) { /* opaque no-cors response; assume delivered */ }
     setSent(true);
