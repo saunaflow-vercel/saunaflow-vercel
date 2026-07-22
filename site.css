@@ -492,9 +492,9 @@ body.banner-dismissed { --banner-h: 0px; }
 
 @media (max-width: 720px) {
   .brandshow__stage { padding: 0; }
-  .brandshow__arrow { width: 44px; height: 44px; }
-  .brandshow__arrow--prev { left: 10px; }
-  .brandshow__arrow--next { right: 10px; }
+  /* arrows overlap slide text at this width with no side gutter to sit in —
+     dots + autoplay still cover navigation, so just hide them here */
+  .brandshow__arrow { display: none; }
 }
 
 /* ============================================================
