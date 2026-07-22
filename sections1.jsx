@@ -65,7 +65,7 @@ function Ritual() {
         <div className="ritual__head">
           <div>
             <Eyebrow>The Ritual</Eyebrow>
-            <h2 className="ritual__title">The <span className="up" style={{ fontFamily: "Argue", fontWeight: "300" }}>Experience.</span></h2>
+            <h2 className="ritual__title">The <span className="up" style={{ fontFamily: "Argue", fontWeight: "300" }}>Ritual.</span></h2>
           </div>
           <p className="ritual__sub" style={{ padding: "0px 0px 16px" }}>A 60-Minute Nervous System Reset. A Social Ritual. Not a Treatment.</p>
         </div>
