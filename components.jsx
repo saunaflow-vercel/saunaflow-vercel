@@ -212,7 +212,7 @@ function Footer() {
             <div className="footer__col">
               <Eyebrow>Social</Eyebrow>
               <ul>
-                <li><a className="flink" href="#"><Icon name="instagram" size={16} /> Instagram</a></li>
+                <li><a className="flink" href="https://www.instagram.com/saunaandflow" target="_blank" rel="noopener noreferrer"><Icon name="instagram" size={16} /> Instagram</a></li>
                 <li><a className="flink" href="#"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
               </ul>
             </div>
