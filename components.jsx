@@ -36,6 +36,8 @@ function Icon({ name, size = 20, stroke = 2, className = "", style }) {
     <svg {...common}><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>);
   if (name === "linkedin") return (
     <svg {...common}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-9h4v1.5" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>);
+  if (name === "facebook") return (
+    <svg {...common}><circle cx="12" cy="12" r="10" /><path d="M13.5 21v-7h2.2l.3-2.6h-2.5v-1.6c0-.75.2-1.3 1.3-1.3h1.4V6.1C15.9 6 15 6 14 6c-2.1 0-3.5 1.3-3.5 3.6V11.4H8.3V14h2.2v7" fill="currentColor" stroke="none" /></svg>);
   return <svg {...common}><path d={IcPath[name]} /></svg>;
 }
 
@@ -213,7 +215,7 @@ function Footer() {
               <Eyebrow>Social</Eyebrow>
               <ul>
                 <li><a className="flink" href="https://www.instagram.com/saunaandflow" target="_blank" rel="noopener noreferrer"><Icon name="instagram" size={16} /> Instagram</a></li>
-                <li><a className="flink" href="#"><Icon name="linkedin" size={16} /> LinkedIn</a></li>
+                <li><a className="flink" href="https://www.facebook.com/people/Sauna-Flow/61592338910424/" target="_blank" rel="noopener noreferrer"><Icon name="facebook" size={16} /> Facebook</a></li>
               </ul>
             </div>
           </div>
