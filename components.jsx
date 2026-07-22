@@ -176,22 +176,24 @@ function Navbar({ onBook }) {
   }, []);
   const go = (id) => {setOpen(false);scrollToId(id);};
   return (
-    <nav className={`nav ${scrolled ? "nav--scrolled" : "nav--top"}`}>
-      <div className="wrap nav__inner">
-        <button className="nav__logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Top"><LogoLine height={scrolled ? 28 : 34} /></button>
-        <div className="nav__links">
-          {NAV_LINKS.map(([l, id]) => <button key={id} className={`nav__link ${active === id ? "active" : ""}`} onClick={() => go(id)}>{l}</button>)}
-          <Button variant="outline" pillcap magnetic onClick={onBook} style={{ marginLeft: 10 }}>Join Waitlist</Button>
+    <React.Fragment>
+      <nav className={`nav ${scrolled ? "nav--scrolled" : "nav--top"}`}>
+        <div className="wrap nav__inner">
+          <button className="nav__logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Top"><LogoLine height={scrolled ? 28 : 34} /></button>
+          <div className="nav__links">
+            {NAV_LINKS.map(([l, id]) => <button key={id} className={`nav__link ${active === id ? "active" : ""}`} onClick={() => go(id)}>{l}</button>)}
+            <Button variant="outline" pillcap magnetic onClick={onBook} style={{ marginLeft: 10 }}>Join Waitlist</Button>
+          </div>
+          <button className="nav__burger" onClick={() => setOpen(!open)} aria-label="Menu"><Icon name={open ? "x" : "menu"} size={26} /></button>
         </div>
-        <button className="nav__burger" onClick={() => setOpen(!open)} aria-label="Menu"><Icon name={open ? "x" : "menu"} size={26} /></button>
-      </div>
+      </nav>
       {open &&
       <div className="mobnav">
           {NAV_LINKS.map(([l, id], i) => <button key={id} className="mobnav__link" style={{ animationDelay: i * 60 + "ms" }} onClick={() => go(id)}>{l}</button>)}
           <Button variant="primary" arrow onClick={() => {setOpen(false);onBook();}} style={{ marginTop: 22 }}>Join Waitlist</Button>
         </div>
       }
-    </nav>);
+    </React.Fragment>);
 
 }
 
