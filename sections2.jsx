@@ -1,5 +1,43 @@
 /* Sauna + Flow — sections 2: Plans, Story, Host, FAQ, Contact */
 
+function Plans({ onBook }) {
+  const plans = [
+  { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Towel & hydration included", "No commitment"] },
+  { name: "Essential", price: "£33", desc: "2 sessions a month · £16.50 per session", features: ["2 × 60min Sessions / month", "Towel & hydration included", "5% off merch"] },
+  { name: "Core", price: "£59", desc: "4 sessions a month · £14.75 per session", features: ["4 × 60min Sessions / month", "Priority Booking", "Guest Pass ×1", "10% off Merch"], popular: true },
+  { name: "Unlimited", price: "£99", desc: "Unlimited sessions, every month.", features: ["Unlimited 60min Sessions", "Priority Booking", "Guest Pass ×2", "15% off Merch"] }];
+
+  return (
+    <section id="plans" className="section plans">
+      <div className="wrap">
+        <div className="plans__head">
+          <h2 className="plans__h">Sauna + Flow <em>Membership</em></h2>
+          <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>Make Sauna + Flow part of your routine — flexible plans, built for real life.</p>
+        </div>
+        <div className="plan-grid">
+          {plans.map((p, i) =>
+          <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
+              {p.popular && <span className="plan__badge">Popular</span>}
+              <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
+              <div className="plan__price">{p.price}</div>
+              <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
+              <div className="plan__feats">
+                {p.features.map((f) =>
+              <div className="plan__feat" key={f}>
+                    <span className="tick" style={{ width: 20, height: 20, borderRadius: "50%", display: "grid", placeItems: "center", background: p.popular ? "rgba(35,31,32,.12)" : "var(--gold-wash)", color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}><Icon name="check" size={12} /></span>
+                    {f}
+                  </div>
+              )}
+              </div>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Join Waitlist</Button>
+            </Reveal>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
 function Story() {
   return (
     <section id="about" className="section story">
@@ -106,4 +144,4 @@ function Contact({ formRef }) {
 
 }
 
-Object.assign(window, { Story, FAQ, Contact });
+Object.assign(window, { Plans, Story, FAQ, Contact });
