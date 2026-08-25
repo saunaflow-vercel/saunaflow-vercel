@@ -206,10 +206,8 @@ function Footer() {
           <div style={{ maxWidth: 320 }}>
             <img src={asset("assets/logo-wordmark-flame-cream.png")} alt="Sauna + Flow" className="footer__logo" />
             <p className="blurb" style={{ marginTop: 26 }}>Ealing Cricket Club<br />Corfton Road<br />London<br />W5 2HS</p>
-            <p className="blurb" style={{ marginTop: 10, display: "flex", gap: 8, flexWrap: "wrap" }}>
-              <a className="flink" href="https://www.google.com/maps/search/?api=1&query=Ealing+Cricket+Club%2C+Corfton+Road%2C+London%2C+W5+2HS" target="_blank" rel="noopener noreferrer">Get directions</a>
-              <span style={{ color: "var(--on-dark-3)" }}>·</span>
-              <span>what3words <a className="flink" href="https://what3words.com/dubs.dared.jags" target="_blank" rel="noopener noreferrer" style={{ display: "inline" }}>///dubs.dared.jags</a></span>
+            <p className="blurb" style={{ marginTop: 10 }}>
+              what3words <a className="flink" href="https://what3words.com/dubs.dared.jags" target="_blank" rel="noopener noreferrer" style={{ display: "inline" }}>///dubs.dared.jags</a>
             </p>
             <iframe
               src="https://www.google.com/maps?q=Ealing%20Cricket%20Club%2C%20Corfton%20Road%2C%20London%2C%20W5%202HS&output=embed"
