@@ -3,8 +3,8 @@
 function Plans({ onBook }) {
   const plans = [
   { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"] },
-  { name: "Essential", price: "£33", desc: "2 sessions a month · £16.50 per session", features: ["2 × 60min Sessions / month", "Hydration included", "5% off Merch & Private Hire"] },
-  { name: "Core", price: "£59", desc: "4 sessions a month · £14.75 per session", features: ["4 × 60min Sessions / month", "Priority Booking", "Guest Pass ×1", "10% off Merch & Private Hire"], popular: true },
+  { name: "Essential", price: "£30", desc: "2 sessions a month · £15.00 per session", features: ["2 × 60min Sessions / month", "Hydration included", "5% off Merch & Private Hire"] },
+  { name: "Core", price: "£59", desc: "5 sessions a month · £11.80 per session", features: ["5 × 60min Sessions / month", "Priority Booking", "Guest Pass ×1", "10% off Merch & Private Hire"], popular: true },
   { name: "Unlimited", price: "£99", desc: "Unlimited sessions, every month.", features: ["Unlimited 60min Sessions", "Priority Booking", "Guest Pass ×2", "15% off Merch & Private Hire"] },
   { name: "Private Hire", price: "£120", desc: "Exclusive use for you and your group.", features: ["Up to 8 people", "90min sessions available on request", "Guided rituals available on request"] }];
 
