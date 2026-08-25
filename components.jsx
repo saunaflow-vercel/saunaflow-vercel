@@ -202,10 +202,10 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div className="footer__top">
-          <div style={{ maxWidth: 320 }}>
-            <img src={asset("assets/logo-wordmark-flame-cream.png")} alt="Sauna + Flow" className="footer__logo" />
-            <p className="blurb" style={{ marginTop: 26 }}>Ealing Cricket Club<br />Corfton Road<br />London<br />W5 2HS</p>
+        <div className="footer__top footer__top--3col">
+          <div className="footer__col footer__col--find">
+            <Eyebrow>How to Find Us</Eyebrow>
+            <p className="blurb" style={{ marginTop: 22 }}>Ealing Cricket Club<br />Corfton Road<br />London<br />W5 2HS</p>
             <p className="blurb" style={{ marginTop: 10 }}>
               what3words <a className="flink" href="https://what3words.com/dubs.dared.jags" target="_blank" rel="noopener noreferrer" style={{ display: "inline" }}>///dubs.dared.jags</a>
             </p>
@@ -214,6 +214,13 @@ function Footer() {
               width="100%" height="220" style={{ border: 0, borderRadius: "var(--r-md)", marginTop: 18, display: "block" }}
               loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               title="Map showing Sauna + Flow at Ealing Cricket Club" />
+          </div>
+          <div className="footer__col footer__col--hours">
+            <Eyebrow>Opening Times</Eyebrow>
+            <ul className="footer__hours">
+              {[["Monday", "Closed"], ["Tuesday", "Closed"], ["Wednesday", "7am–9pm"], ["Thursday", "7am–9pm"], ["Friday", "7am–9pm"], ["Saturday", "8am–9pm"], ["Sunday", "8am–9pm"]].map(([day, hours]) =>
+                <li key={day}><span>{day}</span><span>{hours}</span></li>)}
+            </ul>
           </div>
           <div className="footer__cols">
             <div className="footer__col">
