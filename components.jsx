@@ -207,7 +207,7 @@ function Footer() {
             <Eyebrow>How to Find Us</Eyebrow>
             <p className="blurb" style={{ marginTop: 22 }}>Ealing Cricket Club<br />Corfton Road<br />London<br />W5 2HS</p>
             <p className="blurb" style={{ marginTop: 10 }}>
-              what3words <a className="flink" href="https://what3words.com/dubs.dared.jags" target="_blank" rel="noopener noreferrer" style={{ display: "inline" }}>///dubs.dared.jags</a>
+              what3words <a className="flink" href="https://what3words.com/steep.secure.dark" target="_blank" rel="noopener noreferrer" style={{ display: "inline" }}>///steep.secure.dark</a>
             </p>
             <iframe
               src="https://www.google.com/maps?q=Ealing%20Cricket%20Club%2C%20Corfton%20Road%2C%20London%2C%20W5%202HS&output=embed"
