@@ -51,7 +51,7 @@ function LogoLine({ height = 32 }) {
 
 function Eyebrow({ children, tone = "gold", style }) {
   const cls = tone === "light" ? "eyebrow eyebrow--light" : tone === "ink" ? "eyebrow eyebrow--ink" : "eyebrow";
-  return <span className={cls} style={{ color: "rgba(34, 32, 32, 0.48)", ...style }}>{children}</span>;
+  return <span className={cls} style={style}>{children}</span>;
 }
 
 /* ---------- Magnetic hook ---------- */
