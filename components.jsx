@@ -218,7 +218,7 @@ function Footer() {
           <div className="footer__col footer__col--hours">
             <Eyebrow>Opening Times</Eyebrow>
             <ul className="footer__hours">
-              {[["Monday", "Closed"], ["Tuesday", "Closed"], ["Wednesday", "7am–9pm"], ["Thursday", "7am–9pm"], ["Friday", "7am–9pm"], ["Saturday", "8am–9pm"], ["Sunday", "8am–9pm"]].map(([day, hours]) =>
+              {[["Monday", "Closed"], ["Tuesday", "Closed"], ["Wednesday", "TBC"], ["Thursday", "TBC"], ["Friday", "TBC"], ["Saturday", "8am–9pm"], ["Sunday", "8am–9pm"]].map(([day, hours]) =>
                 <li key={day}><span>{day}</span><span>{hours}</span></li>)}
             </ul>
           </div>
