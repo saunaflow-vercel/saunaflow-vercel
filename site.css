@@ -371,7 +371,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .contact__h { font-family: var(--font-serif); font-style: italic; font-weight: 600; font-size: clamp(2.75rem,8vw,6.5rem); margin-bottom: 8px; }
 .contact__sub { color: var(--on-dark-3); font-size: clamp(1rem,1.4vw,1.25rem); }
 .formcard { background: var(--coal-deep); border-radius: var(--r-lg); border: 1px solid rgba(255,255,255,.05); box-shadow: 0 30px 80px -30px rgba(0,0,0,.6); padding: clamp(24px,4vw,60px); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.contact-grid { display: flex; flex-direction: column; gap: 32px; }
 .field { position: relative; }
 .field label { display: block; color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
 .field input, .field textarea {
@@ -385,12 +385,11 @@ body.banner-dismissed { --banner-h: 0px; }
 .field.err input, .field.err textarea { border-bottom-color: #e0586a; }
 .contact-grid .field--msg { display: flex; flex-direction: column; }
 .contact-grid .field--msg textarea { flex: 1; min-height: 140px; resize: none; }
-.contact-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; }
+.contact-actions { display: flex; justify-content: flex-end; }
 .contact-success { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .success-ring { width: 84px; height: 84px; border-radius: 50%; background: var(--gold-wash); display: grid; place-items: center; margin-bottom: 30px; }
 .success-ring svg { stroke-dasharray: 30; stroke-dashoffset: 30; animation: draw .7s var(--ease) .15s forwards; }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
 
 /* ============================================================
    Footer

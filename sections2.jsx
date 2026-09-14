@@ -93,7 +93,7 @@ function Contact({ formRef }) {
   const submit = async (e) => {
     e.preventDefault();
     const f = e.currentTarget;
-    const vals = { name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(), message: f.message.value.trim() };
+    const vals = { name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim() };
     const ne = {};
     if (!vals.name) ne.name = true;
     if (!vals.email) ne.email = true;
@@ -119,10 +119,9 @@ function Contact({ formRef }) {
 
   return (
     <section id="contact" className="section contact" ref={formRef}>
-      <div className="wrap" style={{ maxWidth: 880 }}>
+      <div className="wrap" style={{ maxWidth: 520 }}>
         <div className="contact__head">
           <h2 className="contact__h">Connect.</h2>
-          <p className="contact__sub">Start the conversation.</p>
         </div>
         <div className="formcard">
           <form onSubmit={submit} className="contact-grid" noValidate>
@@ -130,10 +129,6 @@ function Contact({ formRef }) {
               <div className={`field ${err.name ? "err" : ""}`}><label>Name <span style={{ color: "rgba(255,255,255,.4)" }}>*</span></label><input name="name" placeholder="Enter your name" /><span className="uline" /></div>
               <div className={`field ${err.email ? "err" : ""}`}><label>Email <span style={{ color: "rgba(255,255,255,.4)" }}>*</span></label><input name="email" type="email" placeholder="Enter your email" /><span className="uline" /></div>
               <div className="field"><label>Phone</label><input name="phone" placeholder="Enter your phone number" /><span className="uline" /></div>
-            </div>
-            <div className="field field--msg">
-              <label>Your Space / Project</label>
-              <textarea name="message" placeholder="Tell us about your needs" /><span className="uline" />
             </div>
             <div className="contact-actions">
               <Button variant="primary" arrow magnetic>Send Enquiry</Button>
