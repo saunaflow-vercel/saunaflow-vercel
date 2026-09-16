@@ -239,6 +239,13 @@ function Footer() {
         </div>
         <div className="footer__base">
           <p>© 2026 Sauna + Flow.</p>
+          <p className="footer__legal">
+            <a href="terms.html">Terms &amp; Conditions</a>
+            <span> · </span>
+            <a href="privacy.html">Privacy Policy</a>
+            <span> · </span>
+            <a href="waiver.html">Waiver &amp; Health Declaration</a>
+          </p>
           <p>Heat. Cold. Connect.</p>
         </div>
       </div>
