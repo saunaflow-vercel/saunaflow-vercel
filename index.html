@@ -42,6 +42,10 @@ window.SF_SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzxd45xSbqY
 // script routes them to an "Enquiries" tab based on form: "contact".
 window.SF_CONTACT_ENDPOINT = "https://script.google.com/macros/s/AKfycbzxd45xSbqYARrJBXGlTLNe4gmWjbpKHOvrQmx4QVJ6ZZ7h0EFk-iT9GpE41QhZdkCsjA/exec";
 
+// ── Periode booking page ──────────────────────────────────────
+// "Book" buttons (nav, mobile menu, membership cards) send visitors here.
+window.SF_BOOKING_URL = "https://minside.periode.no/booking/4i57NVy4jvgeFRrJBAIS/1UKZKoJlzmDXhkytbTWO";
+
 const TWEAK_DEFAULTS = {
   "motion": "calm",
   "grain": true,
@@ -51,7 +55,6 @@ const TWEAK_DEFAULTS = {
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const contactRef = React.useRef(null);
-  const [toast, setToast] = React.useState(false);
   const [partnerOpen, setPartnerOpen] = React.useState(false);
 
   // expose motion settings to imperative handlers (scroll / mousemove)
@@ -61,7 +64,7 @@ function App() {
     document.documentElement.dataset.motion = t.motion;
   }, [t.motion]);
 
-  const book = () => { scrollToId("contact"); setToast(true); setTimeout(() => setToast(false), 2200); };
+  const book = () => { window.location.href = window.SF_BOOKING_URL; };
   const discover = () => scrollToId("experience");
 
   return (
@@ -80,7 +83,6 @@ function App() {
       <Contact formRef={contactRef} />
       <Footer />
       <PartnershipModal open={partnerOpen} onClose={() => setPartnerOpen(false)} />
-      <div className={"toast " + (toast ? "show" : "")}>Let's get you booked in →</div>
 
       <TweaksPanel>
         <TweakSection label="Motion" />
