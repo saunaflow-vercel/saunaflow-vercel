@@ -273,7 +273,7 @@ function AnnouncementBanner({ onOpen }) {
   useEffect(() => { document.body.classList.toggle("banner-dismissed", gone); return () => document.body.classList.remove("banner-dismissed"); }, [gone]);
   if (gone) return null;
   const items = [
-    { t: "Recovery sessions coming to your club" },
+    { t: "Opening this October" },
     { t: "West London" },
     { t: "Ealing Cricket Club × Sauna + Flow", hot: true },
   ];
