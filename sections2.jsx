@@ -30,7 +30,7 @@ function Plans({ onBook }) {
                   </div>
               )}
               </div>
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Join Waitlist</Button>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Book</Button>
             </Reveal>
           )}
         </div>
