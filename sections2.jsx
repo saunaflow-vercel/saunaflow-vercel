@@ -1,39 +1,17 @@
 /* Sauna + Flow — sections 2: Plans, Story, Host, FAQ, Contact */
 
-function Plans({ onBook }) {
-  const plans = [
-  { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"] },
-  { name: "Essential", price: "£30", desc: "2 sessions a month · £15.00 per session", features: ["2 × 60min Sessions / month", "Hydration included", "5% off Merch & Private Hire"] },
-  { name: "Core", price: "£59", desc: "5 sessions a month · £11.80 per session", features: ["5 × 60min Sessions / month", "Priority Booking", "Guest Pass ×1", "10% off Merch & Private Hire"], popular: true },
-  { name: "Unlimited", price: "£99", desc: "Unlimited sessions, every month.", features: ["Unlimited 60min Sessions", "Priority Booking", "Guest Pass ×2", "15% off Merch & Private Hire"] },
-  { name: "Private Hire", price: "£120", desc: "Exclusive use for you and your group.", features: ["Up to 8 people", "90min sessions available on request", "Guided rituals available on request"] }];
-
+function Plans() {
   return (
     <section id="plans" className="section plans">
       <div className="wrap">
         <div className="plans__head">
           <h2 className="plans__h">Sauna + Flow <em>Membership</em></h2>
-          <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>Make Sauna + Flow part of your routine — flexible plans, built for real life.</p>
+          <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>We're reworking our membership plans to bring you the best value.</p>
         </div>
-        <div className="plan-grid">
-          {plans.map((p, i) =>
-          <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
-              {p.popular && <span className="plan__badge">Popular</span>}
-              <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
-              <div className="plan__price">{p.price}</div>
-              <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
-              <div className="plan__feats">
-                {p.features.map((f) =>
-              <div className="plan__feat" key={f}>
-                    <span className="tick" style={{ width: 20, height: 20, borderRadius: "50%", display: "grid", placeItems: "center", background: p.popular ? "rgba(35,31,32,.12)" : "var(--gold-wash)", color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}><Icon name="check" size={12} /></span>
-                    {f}
-                  </div>
-              )}
-              </div>
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Book</Button>
-            </Reveal>
-          )}
-        </div>
+        <Reveal className="plans__holding">
+          <Eyebrow style={{ color: "var(--gold)" }}>New plans coming soon</Eyebrow>
+          <p className="plans__holding-text">Watch this space…</p>
+        </Reveal>
       </div>
     </section>);
 
