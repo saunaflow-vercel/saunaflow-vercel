@@ -68,7 +68,7 @@ function App() {
     document.documentElement.dataset.motion = t.motion;
   }, [t.motion]);
 
-  const book = () => { scrollToId("contact"); setToast(true); setTimeout(() => setToast(false), 2200); };
+  const book = () => { scrollToId("plans"); setToast(true); setTimeout(() => setToast(false), 2200); };
   const discover = () => scrollToId("experience");
 
   return (
@@ -82,7 +82,7 @@ function App() {
       <Benefits />
       <Story />
       <BrandCarousel />
-      <Plans onBook={book} />
+      <Plans />
       <FAQ />
       <Contact formRef={contactRef} />
       <Footer />

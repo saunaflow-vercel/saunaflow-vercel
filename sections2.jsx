@@ -1,6 +1,6 @@
 /* Sauna + Flow — sections 2: Plans, Story, Host, FAQ, Contact */
 
-function Plans({ onBook }) {
+function Plans() {
   const plans = [
   { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"], bookUrl: window.SF_BOOKING_URL },
   { name: "Regulars", price: "£40", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL }];
@@ -27,7 +27,7 @@ function Plans({ onBook }) {
                   </div>
               )}
               </div>
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={p.bookUrl ? () => { window.location.href = p.bookUrl; } : onBook}>Book</Button>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={() => { window.location.href = p.bookUrl; }}>Book</Button>
             </Reveal>
           )}
         </div>
