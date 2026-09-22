@@ -3,7 +3,7 @@
 function Plans({ onBook }) {
   const plans = [
   { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"], bookUrl: window.SF_BOOKING_URL },
-  { name: "Regulars", price: "£40", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true }];
+  { name: "Regulars", price: "£40", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL }];
 
   return (
     <section id="plans" className="section plans">
