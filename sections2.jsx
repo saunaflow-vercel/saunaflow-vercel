@@ -1,17 +1,36 @@
 /* Sauna + Flow — sections 2: Plans, Story, Host, FAQ, Contact */
 
-function Plans() {
+function Plans({ onBook }) {
+  const plans = [
+  { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"] },
+  { name: "Regulars", price: "£40", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true }];
+
   return (
     <section id="plans" className="section plans">
       <div className="wrap">
         <div className="plans__head">
           <h2 className="plans__h">Sauna + Flow <em>Membership</em></h2>
-          <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>We're reworking our membership plans to bring you the best value.</p>
+          <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>Keeping membership simple.</p>
         </div>
-        <Reveal className="plans__holding">
-          <Eyebrow style={{ color: "var(--gold)" }}>New plans coming soon</Eyebrow>
-          <p className="plans__holding-text">Watch this space…</p>
-        </Reveal>
+        <div className="plan-grid plan-grid--pair">
+          {plans.map((p, i) =>
+          <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
+              {p.popular && <span className="plan__badge">Popular</span>}
+              <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
+              <div className="plan__price">{p.price}</div>
+              <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
+              <div className="plan__feats">
+                {p.features.map((f) =>
+              <div className="plan__feat" key={f}>
+                    <span className="tick" style={{ width: 20, height: 20, borderRadius: "50%", display: "grid", placeItems: "center", background: p.popular ? "rgba(35,31,32,.12)" : "var(--gold-wash)", color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}><Icon name="check" size={12} /></span>
+                    {f}
+                  </div>
+              )}
+              </div>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={onBook}>Book</Button>
+            </Reveal>
+          )}
+        </div>
       </div>
     </section>);
 
