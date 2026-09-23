@@ -3,7 +3,8 @@
 function Plans() {
   const plans = [
   { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"], bookUrl: window.SF_BOOKING_URL },
-  { name: "Regulars", price: "£40", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL }];
+  { name: "Regulars", price: "£55", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL },
+  { name: "Private Hire", price: "£120", desc: "Hire the whole venue for birthdays, hen do's or just a group get together (Max 8 people)." }];
 
   return (
     <section id="plans" className="section plans">
@@ -12,13 +13,14 @@ function Plans() {
           <h2 className="plans__h">Sauna + Flow <em>Membership</em></h2>
           <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>Keeping membership simple.</p>
         </div>
-        <div className="plan-grid plan-grid--pair">
+        <div className="plan-grid plan-grid--trio">
           {plans.map((p, i) =>
           <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
               {p.popular && <span className="plan__badge">Popular</span>}
               <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
               <div className="plan__price">{p.price}</div>
               <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
+              {p.features &&
               <div className="plan__feats">
                 {p.features.map((f) =>
               <div className="plan__feat" key={f}>
@@ -27,7 +29,8 @@ function Plans() {
                   </div>
               )}
               </div>
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={() => { window.location.href = p.bookUrl; }}>Book</Button>
+              }
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={() => { p.bookUrl ? window.location.href = p.bookUrl : scrollToId("contact"); }}>Book</Button>
             </Reveal>
           )}
         </div>

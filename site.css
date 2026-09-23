@@ -316,8 +316,9 @@ body.banner-dismissed { --banner-h: 0px; }
 @media (max-width: 1200px) { .plan-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 980px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .plan-grid { grid-template-columns: 1fr; } }
-.plan-grid--pair { grid-template-columns: repeat(2,minmax(0,320px)); max-width: 680px; margin: 0 auto; }
-@media (max-width: 640px) { .plan-grid--pair { grid-template-columns: 1fr; max-width: 360px; } }
+.plan-grid--trio { grid-template-columns: repeat(3,minmax(0,320px)); max-width: 1020px; margin: 0 auto; }
+@media (max-width: 900px) { .plan-grid--trio { grid-template-columns: 1fr 1fr; max-width: 680px; } }
+@media (max-width: 640px) { .plan-grid--trio { grid-template-columns: 1fr; max-width: 360px; } }
 
 /* ============================================================
    Story / Host
