@@ -12,6 +12,9 @@ function Plans() {
         <div className="plans__head">
           <h2 className="plans__h">Sauna + Flow <em>Membership</em></h2>
           <p style={{ color: "var(--on-dark-3)", maxWidth: 560, margin: "0 auto" }}>Keeping membership simple.</p>
+          {!window.SF_BOOKINGS_LIVE &&
+          <p className="plans__notice">Hold tight — online booking is launching very soon.</p>
+          }
         </div>
         <div className="plan-grid plan-grid--trio">
           {plans.map((p, i) =>
@@ -30,7 +33,7 @@ function Plans() {
               )}
               </div>
               }
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic onClick={() => { p.bookUrl ? window.location.href = p.bookUrl : scrollToId("contact"); }}>Book</Button>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic disabled={!window.SF_BOOKINGS_LIVE} onClick={() => { p.bookUrl ? window.location.href = p.bookUrl : scrollToId("contact"); }}>{window.SF_BOOKINGS_LIVE ? "Book" : "Coming Soon"}</Button>
             </Reveal>
           )}
         </div>
