@@ -55,18 +55,7 @@ function BrandSlides() {
       </div>
     </div>,
 
-  // 5 — FULL-BLEED IMAGE
-  <div style={{ position: "absolute", inset: 0, background: "var(--coal-deep)" }} data-screen-label="Brand · Image">
-      <img src={asset("assets/hero-mobile-sauna.jpg")} alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(12,12,12,.85), rgba(12,12,12,.12) 55%, rgba(12,12,12,.4))" }} />
-      <div className="bs-pad" style={{ position: "relative", justifyContent: "flex-end" }}>
-        {eb("Mobile · London", { marginBottom: 16 })}
-        <h2 className="bs-serif" style={{ fontSize: 86, lineHeight: .95, color: "#fff" }}>Heat. Cold.<br /><span className="bs-ital" style={{ color: "var(--gold)" }}>Connect.</span></h2>
-        <p style={{ fontSize: 22, color: "rgba(255,255,255,.85)", maxWidth: 560, marginTop: 18 }}>Sauna and cold plunge for London's sports venues and communities.</p>
-      </div>
-    </div>,
-
-  // 6 — QUOTE
+  // 5 — QUOTE
   <div className="bs-pad" style={{ justifyContent: "center", background: "var(--coal-ink)" }} data-screen-label="Brand · Quote">
       <div className="bs-serif" style={{ fontSize: 120, lineHeight: .6, color: "var(--gold)", height: 54 }}>“</div>
       <p className="bs-serif bs-ital" style={{ fontSize: 46, lineHeight: 1.3, color: "#fff", maxWidth: 900 }}>
