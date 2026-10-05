@@ -85,7 +85,7 @@ a { color: inherit; }
 .btn:disabled { opacity: .45; cursor: not-allowed; pointer-events: none; }
 
 /* ============================================================
-   Eyebrow / dividers / textlink
+   Eyebrow / dividers
    ============================================================ */
 .eyebrow {
   font-family: var(--font-sans); font-weight: 700; font-size: 12px;
@@ -95,19 +95,6 @@ a { color: inherit; }
 .eyebrow--light { color: var(--on-dark-1); }
 .eyebrow--ink { color: var(--on-light-3); }
 .divider { width: 48px; height: 1px; background: currentColor; opacity: .85; display: inline-block; }
-
-.textlink {
-  background: none; border: none; color: var(--on-dark-1); font-weight: 700; font-size: 13px;
-  letter-spacing: .18em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 16px;
-  transition: color var(--dur);
-}
-.textlink:hover { color: var(--gold); }
-.arrow-circ {
-  width: 52px; height: 52px; border-radius: 50%; border: 2px solid currentColor;
-  display: grid; place-items: center; transition: border-color var(--dur), transform var(--dur) var(--ease);
-  background: rgba(255,255,255,.05); backdrop-filter: blur(4px); will-change: transform;
-}
-.textlink:hover .arrow-circ { border-color: var(--gold); }
 
 /* ============================================================
    Navbar
@@ -193,7 +180,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .hero__lockup { animation: heroRise 2.4s var(--ease) .8s both; }
 .hero__accent { animation: heroRise 2.4s var(--ease) 1.4s both; }
 .hero__lead { animation: heroRise 2.4s var(--ease) 1.9s both; }
-.hero .textlink { animation: heroRise 2.4s var(--ease) 2.3s both; }
+.hero__book { animation: heroRise 2.4s var(--ease) 2.3s both; }
 
 /* ============================================================
    Reveal system
@@ -206,7 +193,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .reveal--right.in { transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal--img, .word > span,
-  .hero__content .kicker-row, .hero__lockup, .hero__accent, .hero__lead, .hero .textlink { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; animation: none !important; }
+  .hero__content .kicker-row, .hero__lockup, .hero__accent, .hero__lead, .hero__book { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; animation: none !important; }
   .hero__flame, .grain, .hero__cue .line::after { animation: none !important; }
 }
 

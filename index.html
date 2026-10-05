@@ -74,7 +74,6 @@ function App() {
   }, [t.motion]);
 
   const book = () => { scrollToId("plans"); setToast(true); setTimeout(() => setToast(false), 2200); };
-  const discover = () => scrollToId("experience");
 
   return (
     <React.Fragment>
@@ -82,7 +81,7 @@ function App() {
       {t.grain && <Grain />}
       <AnnouncementBanner onOpen={() => setPartnerOpen(true)} />
       <Navbar onBook={book} />
-      <Hero onDiscover={discover} />
+      <Hero onBook={book} />
       <Ritual />
       <Benefits />
       <Story />

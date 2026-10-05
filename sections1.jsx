@@ -6,9 +6,8 @@ function splitWords(text) {
   );
 }
 
-function Hero({ onDiscover }) {
+function Hero({ onBook }) {
   const heroRef = useRef(null),bgRef = useRef(null),contentRef = useRef(null);
-  const cueRef = useMagnetic(0.5);
   useEffect(() => {
     const h = heroRef.current;
     const id = requestAnimationFrame(() => h && h.classList.add("in"));
@@ -42,7 +41,7 @@ function Hero({ onDiscover }) {
             </div>
             <div style={{ maxWidth: 580, marginTop: 22 }}>
               <h2 className="hero__accent">{splitWords("Opens this October at Ealing Cricket Club")}</h2>
-              <button className="textlink" onClick={onDiscover}>Discover <span ref={cueRef} className="arrow-circ" style={{ transition: "transform .35s var(--ease), border-color var(--dur)" }}><Icon name="arrow" size={16} /></span></button>
+              <div className="hero__book"><Button variant="primary" magnetic onClick={onBook}>Book now</Button></div>
             </div>
           </div>
         </div>
