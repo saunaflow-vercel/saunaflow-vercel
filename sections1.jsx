@@ -40,7 +40,7 @@ function Hero({ onBook }) {
               <img className="hero__wm" src={asset("assets/logo-wordmark-trim.svg")} alt="Sauna + Flow" />
             </div>
             <div style={{ maxWidth: 580, marginTop: 22 }}>
-              <h2 className="hero__accent">{splitWords("Opens this October at Ealing Cricket Club")}</h2>
+              <h2 className="hero__accent">{splitWords("Now booking at Ealing Cricket Club")}</h2>
               <div className="hero__book"><Button variant="primary" magnetic onClick={onBook}>Book now</Button></div>
             </div>
           </div>

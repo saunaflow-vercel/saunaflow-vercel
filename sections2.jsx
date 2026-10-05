@@ -15,6 +15,7 @@ function Plans() {
           {!window.SF_BOOKINGS_LIVE &&
           <p className="plans__notice">Hold tight — online booking is launching very soon.</p>
           }
+          <p className="plans__format">Drop-In and Regulars sessions are shared with other guests and hosted by a guide. Want the space to yourselves? Choose Private Hire. Live session times and availability are shown when you book.</p>
         </div>
         <div className="plan-grid plan-grid--trio">
           {plans.map((p, i) =>
@@ -63,6 +64,8 @@ function FAQ() {
   const [open, setOpen] = React.useState([0]);
   const faqs = [
   { q: "What should I bring?", a: "Bring swimwear, two towels (one for sitting, one for drying), a water bottle, and slides/flip-flops. We provide the rest." },
+  { q: "What is a session like?", a: "Sessions are 60 minutes, shared with other guests and hosted by a trained guide who helps you manage your heat and cold exposure. Hydration is included. If you'd rather have the space to yourselves, Private Hire gives your group the whole venue." },
+  { q: "When can I book?", a: "Live session times and availability are shown on the booking page — just press Book on any plan to see them." },
   { q: "Is it suitable for beginners?", a: "Absolutely. Our guides are trained to help you manage your heat and cold exposure safely. You are in control of your own limits." },
   { q: "Do you offer partner programmes for sports clubs?", a: "Yes, we work with elite football, rugby, and strength gyms to provide on-site recovery zones. We handle all logistics and staffing." },
   { q: "Can I book a private session?", a: "Yes, we offer private hire for groups, teams, or events. Get in touch and we'll talk you through rates." },

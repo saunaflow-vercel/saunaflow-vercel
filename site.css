@@ -285,6 +285,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .plans__head { text-align: center; margin-bottom: 60px; }
 .plans__h { font-family: var(--font-serif); font-size: clamp(2.25rem,5vw,3.75rem); margin-bottom: 18px; }
 .plans__h em { font-style: italic; color: var(--gold); }
+.plans__format { color: var(--on-dark-3); font-size: 14px; line-height: 1.6; max-width: 560px; margin: 16px auto 0; }
 .plans__notice { color: var(--gold); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 14px 0 0; }
 .plan-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 20px; align-items: stretch; }
 .plan {
@@ -533,47 +534,3 @@ body.banner-dismissed { --banner-h: 0px; }
   .abanner__x { padding: 0 10px 0 2px; }
 }
 @media (prefers-reduced-motion: reduce) { .abanner__track { animation: none; } }
-
-/* ============================================================
-   Partnership modal
-   ============================================================ */
-.pmodal-overlay {
-  position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 20px;
-  background: rgba(16,13,14,.66); backdrop-filter: blur(6px);
-}
-.pmodal {
-  position: relative; width: min(480px, 100%); max-height: 92vh; overflow-y: auto;
-  background: var(--coal-ink); color: var(--on-dark-1);
-  border: 1px solid rgba(255,255,255,.08); border-radius: 20px;
-  box-shadow: 0 40px 100px -30px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.04);
-  padding: 40px 36px 34px; animation: pmIn .42s var(--ease);
-}
-.pmodal::before {                        /* top gold hairline accent */
-  content: ""; position: absolute; top: 0; left: 24px; right: 24px; height: 3px; border-radius: 0 0 4px 4px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-@keyframes pmIn { from { opacity: 0; transform: translateY(22px) scale(.97); } to { opacity: 1; transform: none; } }
-.pmodal__handle { position: absolute; top: 12px; left: 50%; translate: -50% 0; width: 46px; height: 4px; border-radius: var(--r-pill); background: rgba(244,241,234,.22); }
-.pmodal__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-.pmodal__marks { display: flex; align-items: center; gap: 12px; }
-.pmodal__marks .x { color: rgba(244,241,234,.4); font-size: 13px; }
-.pmodal__marks img { height: 26px; width: auto; display: block; }
-.pmodal__close { background: none; border: none; color: rgba(244,241,234,.55); display: grid; place-items: center; cursor: pointer; padding: 6px; border-radius: 50%; transition: color var(--dur), background var(--dur); }
-.pmodal__close:hover { color: var(--gold); background: rgba(255,255,255,.06); }
-.pmodal__eyebrow { font-family: var(--font-sans); font-weight: 700; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 14px; }
-.pmodal__h { font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.7rem, 5vw, 2.15rem); line-height: 1.08; letter-spacing: -.01em; margin-bottom: 14px; }
-.pmodal__h em { font-style: italic; color: var(--gold); }
-.pmodal__sub { color: var(--on-dark-3); font-size: 14.5px; line-height: 1.6; margin-bottom: 26px; }
-.pmodal form { display: flex; flex-direction: column; gap: 22px; }
-.pmodal .field input { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.14); border-radius: 10px; padding: 14px 16px; }
-.pmodal .field input:focus { border-color: rgba(230,193,90,.6); }
-.pmodal .field .uline { display: none; }
-.pmodal .btn { width: 100%; margin-top: 4px; font-size: 17px; padding: 16px; }
-.pmodal__note { text-align: center; color: rgba(244,241,234,.4); font-size: 12px; letter-spacing: .02em; margin-top: 16px; }
-.pmodal__success { text-align: center; padding: 18px 0 8px; }
-.pmodal__success .success-ring { margin: 0 auto 22px; }
-.pmodal__success .success-ring svg { stroke-dashoffset: 0; animation: none; }
-.pmodal__success h3 { font-family: var(--font-serif); font-style: italic; font-size: clamp(1.8rem,6vw,2.3rem); margin-bottom: 12px; }
-.pmodal__success p { color: var(--on-dark-3); font-size: 15px; line-height: 1.6; max-width: 34ch; margin: 0 auto 26px; }
-@media (max-width: 640px) { .pmodal { padding: 36px 22px 28px; } }
-@media (prefers-reduced-motion: reduce) { .pmodal, .pmodal-overlay { animation: none; } }

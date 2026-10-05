@@ -246,7 +246,7 @@ function Footer() {
 
 }
 
-Object.assign(window, { scrollToId, Icon, LogoStamp, LogoLine, Eyebrow, Button, Reveal, Counter, Grain, ContrastMeter, ScrollProgress, Navbar, Footer, useMagnetic, PartnerCrest, AnnouncementBanner, PartnershipModal });
+Object.assign(window, { scrollToId, Icon, LogoStamp, LogoLine, Eyebrow, Button, Reveal, Counter, Grain, ContrastMeter, ScrollProgress, Navbar, Footer, useMagnetic, PartnerCrest, AnnouncementBanner });
 
 /* ============================================================
    Partner crest — placeholder club shield (swap for real crest)
@@ -259,14 +259,14 @@ function PartnerCrest({ size = 26 }) {
 }
 
 /* ============================================================
-   Announcement banner — top marquee, click to open partnership modal
+   Announcement banner — top marquee, click to jump to booking
    ============================================================ */
-function AnnouncementBanner({ onOpen }) {
+function AnnouncementBanner({ onBook }) {
   const [gone, setGone] = useState(false);
   useEffect(() => { document.body.classList.toggle("banner-dismissed", gone); return () => document.body.classList.remove("banner-dismissed"); }, [gone]);
   if (gone) return null;
   const items = [
-    { t: "Opens this October" },
+    { t: "Now booking" },
     { t: "West London" },
     { t: "Ealing Cricket Club × Sauna + Flow", hot: true },
   ];
@@ -283,102 +283,13 @@ function AnnouncementBanner({ onOpen }) {
     </div>
   );
   return (
-    <div className="abanner" role="button" tabIndex={0} aria-label="Partnership announcement — open sign-up"
-      onClick={onOpen} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(); } }}>
+    <div className="abanner" role="button" tabIndex={0} aria-label="Now booking — see booking options"
+      onClick={onBook} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onBook(); } }}>
       <div className="abanner__crest"><PartnerCrest size={24} /></div>
       <div className="abanner__marquee"><div className="abanner__track"><Half /><Half /></div></div>
       <button className="abanner__x" aria-label="Dismiss announcement" onClick={(e) => { e.stopPropagation(); setGone(true); }}>
         <Icon name="x" size={16} />
       </button>
-    </div>
-  );
-}
-
-/* ============================================================
-   Partnership modal — priority-access sign-up → Google Sheets
-   ============================================================ */
-function PartnershipModal({ open, onClose }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [err, setErr] = useState({});
-  const [busy, setBusy] = useState(false);
-  const [sent, setSent] = useState(false);
-  const nameRef = useRef(null);
-
-  useEffect(() => {
-    if (!open) return;
-    document.body.style.overflow = "hidden";
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    const id = setTimeout(() => { if (nameRef.current) nameRef.current.focus(); }, 120);
-    return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", onKey); clearTimeout(id); };
-  }, [open, onClose]);
-
-  // reset shortly after close so reopening is fresh
-  useEffect(() => { if (!open) { const id = setTimeout(() => { setSent(false); setName(""); setEmail(""); setErr({}); }, 300); return () => clearTimeout(id); } }, [open]);
-
-  if (!open) return null;
-
-  const validEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-  const submit = async (e) => {
-    e.preventDefault();
-    const ne = {};
-    if (!name.trim()) ne.name = true;
-    if (!validEmail(email)) ne.email = true;
-    setErr(ne); if (Object.keys(ne).length) return;
-    setBusy(true);
-    const endpoint = window.SF_SHEETS_ENDPOINT;
-    try {
-      if (endpoint) {
-        const body = JSON.stringify({ name: name.trim(), email: email.trim(), partner: "Ealing Cricket Club", source: "Announcement banner" });
-        await fetch(endpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body });
-      } else {
-        await new Promise((r) => setTimeout(r, 650)); // demo mode — no endpoint configured
-      }
-    } catch (_) { /* opaque no-cors response; assume delivered */ }
-    setBusy(false); setSent(true);
-  };
-
-  return (
-    <div className="pmodal-overlay" onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className="pmodal" role="dialog" aria-modal="true" aria-label="Priority access sign-up">
-        <span className="pmodal__handle" />
-        <div className="pmodal__top">
-          <div className="pmodal__marks">
-            <PartnerCrest size={26} />
-            <span className="x">×</span>
-            <img src="assets/mark-flame-gold.png" alt="Sauna + Flow" />
-          </div>
-          <button className="pmodal__close" aria-label="Close" onClick={onClose}><Icon name="x" size={20} /></button>
-        </div>
-
-        {sent ? (
-          <div className="pmodal__success">
-            <div className="success-ring"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg></div>
-            <h3>You're on the list.</h3>
-            <p>Thanks{name ? ", " + name.trim().split(" ")[0] : ""} — we'll be in touch the moment sessions open at Ealing Cricket Club.</p>
-            <Button variant="outline" pillcap onClick={onClose}>Close</Button>
-          </div>
-        ) : (
-          <React.Fragment>
-            <span className="pmodal__eyebrow">Partnership Announcement</span>
-            <h2 className="pmodal__h">We're delighted to bring the ritual to <em>Ealing Cricket Club.</em></h2>
-            <p className="pmodal__sub">Be first to know when sessions launch — and get priority access to book.</p>
-            <form onSubmit={submit} noValidate>
-              <div className={"field" + (err.name ? " err" : "")}>
-                <label>Your name</label>
-                <input ref={nameRef} value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" autoComplete="name" />
-              </div>
-              <div className={"field" + (err.email ? " err" : "")}>
-                <label>Email address</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" autoComplete="email" />
-              </div>
-              <Button variant="primary" type="submit" disabled={busy}>{busy ? "Securing…" : "Secure my priority spot"}</Button>
-            </form>
-            <p className="pmodal__note">No spam. Launch notification + first access only.</p>
-          </React.Fragment>
-        )}
-      </div>
     </div>
   );
 }
