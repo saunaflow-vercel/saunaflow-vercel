@@ -202,7 +202,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div className="footer__top footer__top--3col">
+        <div className="footer__top footer__top--2col">
           <div className="footer__col footer__col--find">
             <Eyebrow>How to Find Us</Eyebrow>
             <p className="blurb" style={{ marginTop: 22 }}>Ealing Cricket Club<br />Corfton Road<br />London<br />W5 2HS</p>
@@ -214,13 +214,6 @@ function Footer() {
               width="100%" height="220" style={{ border: 0, borderRadius: "var(--r-md)", marginTop: 18, display: "block" }}
               loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               title="Map showing Sauna + Flow at Ealing Cricket Club" />
-          </div>
-          <div className="footer__col footer__col--hours">
-            <Eyebrow>Opening Times</Eyebrow>
-            <ul className="footer__hours">
-              {[["Monday", "Closed"], ["Tuesday", "Closed"], ["Wednesday", "TBC"], ["Thursday", "TBC"], ["Friday", "TBC"], ["Saturday", "8am–9pm"], ["Sunday", "8am–9pm"]].map(([day, hours]) =>
-                <li key={day}><span>{day}</span><span>{hours}</span></li>)}
-            </ul>
           </div>
           <div className="footer__cols">
             <div className="footer__col">
@@ -294,9 +287,6 @@ function AnnouncementBanner({ onOpen }) {
       onClick={onOpen} onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(); } }}>
       <div className="abanner__crest"><PartnerCrest size={24} /></div>
       <div className="abanner__marquee"><div className="abanner__track"><Half /><Half /></div></div>
-      <button className="abanner__cta" onClick={onOpen} tabIndex={-1}>
-        <span className="dot" /><span className="cta-txt">Coming soon</span>
-      </button>
       <button className="abanner__x" aria-label="Dismiss announcement" onClick={(e) => { e.stopPropagation(); setGone(true); }}>
         <Icon name="x" size={16} />
       </button>
