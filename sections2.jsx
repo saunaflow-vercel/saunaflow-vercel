@@ -2,9 +2,9 @@
 
 function Plans() {
   const plans = [
-  { name: "Book a Session", price: "£18", unit: "Non-Member", sub: "£9 – Membership price for additional sessions", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included"], bookUrl: window.SF_BOOKING_URL },
-  { name: "Membership", price: "£55", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL },
-  { name: "Private Hire", price: "£120", desc: "Hire the whole venue for birthdays, hen do's or just a group get together (Max 8 people).", bookUrl: window.SF_PRIVATE_HIRE_URL }];
+  { name: "Book a Session", cta: "Book a Session", price: "£18", unit: "Non-Member", sub: "£9 – Membership price for additional sessions", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included"], bookUrl: window.SF_BOOKING_URL },
+  { name: "Membership", cta: "Buy a Membership", price: "£55", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL },
+  { name: "Private Hire", cta: "Book Private Hire", price: "£120", desc: "Hire the whole venue for birthdays, hen do's or just a group get together (Max 8 people).", bookUrl: window.SF_PRIVATE_HIRE_URL }];
 
   return (
     <section id="plans" className="section plans">
@@ -35,7 +35,7 @@ function Plans() {
               )}
               </div>
               }
-              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic disabled={!window.SF_BOOKINGS_LIVE} onClick={() => { p.bookUrl ? window.location.href = p.bookUrl : scrollToId("contact"); }}>{window.SF_BOOKINGS_LIVE ? "Book" : "Coming Soon"}</Button>
+              <Button variant={p.popular ? "dark" : "outline"} arrow magnetic disabled={!window.SF_BOOKINGS_LIVE} onClick={() => { p.bookUrl ? window.location.href = p.bookUrl : scrollToId("contact"); }}>{window.SF_BOOKINGS_LIVE ? p.cta : "Coming Soon"}</Button>
             </Reveal>
           )}
         </div>
