@@ -2,8 +2,8 @@
 
 function Plans() {
   const plans = [
-  { name: "Drop-In", price: "£18", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included", "No commitment"], bookUrl: window.SF_BOOKING_URL },
-  { name: "Regulars", price: "£55", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL },
+  { name: "Book a Session", price: "£18", unit: "Drop In", sub: "£9 – Membership price for additional sessions", desc: "Pay as you go — perfect for your first visit.", features: ["1 × 60min Session", "Hydration included"], bookUrl: window.SF_BOOKING_URL },
+  { name: "Membership", price: "£55", desc: "4 sessions a month, then 50% off additional sessions.", features: ["4 × 60min Sessions / month", "50% off extra sessions", "Priority Booking"], popular: true, bookUrl: window.SF_REGULARS_SIGNUP_URL },
   { name: "Private Hire", price: "£120", desc: "Hire the whole venue for birthdays, hen do's or just a group get together (Max 8 people).", bookUrl: window.SF_PRIVATE_HIRE_URL }];
 
   return (
@@ -15,14 +15,15 @@ function Plans() {
           {!window.SF_BOOKINGS_LIVE &&
           <p className="plans__notice">Hold tight — online booking is launching very soon.</p>
           }
-          <p className="plans__format">Drop-In and Regulars sessions are shared with other guests and hosted by a guide. Want the space to yourselves? Choose Private Hire. Live session times and availability are shown when you book.</p>
+          <p className="plans__format">Book a Session and Membership sessions are shared with other guests and hosted by a guide. Want the space to yourselves? Choose Private Hire. Live session times and availability are shown when you book.</p>
         </div>
         <div className="plan-grid plan-grid--trio">
           {plans.map((p, i) =>
           <Reveal key={p.name} delay={i * 90} className={`plan ${p.popular ? "plan--pop" : ""}`}>
               {p.popular && <span className="plan__badge">Popular</span>}
               <Eyebrow style={{ color: p.popular ? "var(--coal-deep)" : "var(--gold)" }}>{p.name}</Eyebrow>
-              <div className="plan__price">{p.price}</div>
+              <div className="plan__price">{p.price}{p.unit && <span className="plan__unit">{p.unit}</span>}</div>
+              {p.sub && <p className="plan__sub">{p.sub}</p>}
               <p className="plan__desc" style={{ color: p.popular ? "rgba(35,31,32,.78)" : "var(--on-dark-3)" }}>{p.desc}</p>
               {p.features &&
               <div className="plan__feats">
