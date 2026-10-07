@@ -296,8 +296,8 @@ body.banner-dismissed { --banner-h: 0px; }
 .plan:hover { transform: translateY(-5px); border-color: rgba(230,193,90,.4); box-shadow: 0 30px 60px -28px rgba(0,0,0,.7); }
 .plan--pop { background: var(--gold); color: var(--coal-deep); border: none; }
 .plan--pop:hover { box-shadow: 0 34px 64px -26px rgba(230,193,90,.55); }
-.plan__price { font-family: var(--font-serif); font-size: 56px; line-height: 1; margin: 12px 0 6px; }
-.plan__unit { font-family: var(--font-sans); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-left: 12px; opacity: .7; }
+.plan__price { font-family: var(--font-serif); font-size: 56px; line-height: 1; margin: 12px 0 6px; display: flex; align-items: center; }
+.plan__unit { font-family: var(--font-sans); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-left: 14px; opacity: .7; line-height: 1.5; white-space: pre; }
 .plan__sub { font-size: 14px; font-weight: 700; color: var(--gold); margin: 0 0 10px; }
 .plan__desc { font-size: 14px; margin-bottom: 16px; }
 .plan__badge { position: absolute; top: 20px; right: 20px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; background: var(--coal-deep); color: var(--gold); padding: 6px 13px; border-radius: var(--r-pill); }
@@ -311,7 +311,8 @@ body.banner-dismissed { --banner-h: 0px; }
 .plan-grid--trio { grid-template-columns: repeat(3,minmax(0,320px)); max-width: 1020px; margin: 0 auto; }
 @media (max-width: 900px) { .plan-grid--trio { grid-template-columns: 1fr 1fr; max-width: 680px; } }
 @media (max-width: 640px) { .plan-grid--trio { grid-template-columns: minmax(0,1fr); max-width: 360px; } }
-@media (max-width: 360px) { .plan .btn { white-space: normal; padding-inline: 16px; font-size: 16px; } }
+@media (max-width: 360px) { .plan__unit { font-size: 11px; letter-spacing: .08em; margin-left: 10px; }
+  .plan .btn { white-space: normal; padding-inline: 16px; font-size: 16px; } }
 
 /* ============================================================
    Story / Host
