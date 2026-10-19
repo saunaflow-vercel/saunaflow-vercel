@@ -74,11 +74,6 @@ function Ritual() {
         <div className="ritual-split">
           <div className="ritual-aside">
             <p className="ritual-quote">"<em>There's something pure and simple about heat. It's one of the oldest wellness practices we have.</em>"</p>
-            <Eyebrow tone="light" style={{ fontSize: 12 }}>Included in every session</Eyebrow>
-            <ul style={{ listStyle: "none", marginTop: 20, marginBottom: 38 }}>
-              {["Organic essential oils", "Salt scrubs", "Electrolyte hydration"].map((x) =>
-              <li className="check-li" key={x}><span className="tick"><Icon name="check" size={13} /></span> {x}</li>)}
-            </ul>
             <ContrastMeter />
           </div>
           <div className="steps">

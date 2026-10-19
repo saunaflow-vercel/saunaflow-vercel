@@ -221,8 +221,6 @@ body.banner-dismissed { --banner-h: 0px; }
 .ritual-aside { position: sticky; top: 120px; }
 .ritual-quote { font-family: var(--font-serif); font-size: clamp(1.5rem,3vw,2.2rem); line-height: 1.28; margin-bottom: 30px; }
 .ritual-quote em { font-style: italic; }
-.check-li { display: flex; align-items: center; gap: 12px; color: var(--on-dark-2); padding: 6px 0; }
-.check-li .tick { width: 22px; height: 22px; border-radius: 50%; background: var(--gold-wash); color: var(--gold); display: grid; place-items: center; flex: none; }
 
 .steps { display: flex; flex-direction: column; gap: 8px; }
 .step { display: flex; gap: 28px; border-top: 1px solid var(--coal-line); padding: 30px 0; position: relative; transition: background .4s; }
