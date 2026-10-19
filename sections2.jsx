@@ -48,7 +48,7 @@ function Story() {
   return (
     <section id="about" className="section story">
       <div className="wrap story__grid">
-        <Reveal variant="img" className="portrait"><img src={asset("assets/founders.png")} alt="Founders Twig and Hema by the fire" /></Reveal>
+        <Reveal variant="img" className="portrait"><img src={asset("assets/founders-sauna.jpg")} alt="Founders Twig and Hema sitting in front of the Sauna + Flow sauna trailer" /></Reveal>
         <div>
           <Eyebrow tone="ink">Twig &amp; Hema's Story</Eyebrow>
           <h2 className="story__h">From burnout to balance…</h2>
