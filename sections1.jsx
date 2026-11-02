@@ -7,6 +7,7 @@ function splitWords(text) {
 }
 
 function Hero({ onBook }) {
+  const showClosure = Date.now() < new Date("2026-11-09T00:00:00").getTime();
   const heroRef = useRef(null),bgRef = useRef(null),contentRef = useRef(null);
   useEffect(() => {
     const h = heroRef.current;
@@ -41,6 +42,9 @@ function Hero({ onBook }) {
             </div>
             <div style={{ maxWidth: 580, marginTop: 22 }}>
               <h2 className="hero__accent">{splitWords("Now booking at Ealing Cricket Club")}</h2>
+              {showClosure &&
+              <div className="hero__notice"><span className="dot" /><span><strong>Closed this weekend, 7th &amp; 8th November</strong> for the Ealing Cricket Club Firework Display.</span></div>
+              }
               <div className="hero__book"><Button variant="primary" magnetic onClick={onBook}>Book now</Button></div>
             </div>
           </div>

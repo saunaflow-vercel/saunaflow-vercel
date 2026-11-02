@@ -184,6 +184,9 @@ body.banner-dismissed { --banner-h: 0px; }
 .hero__lockup { animation: heroRise 2.4s var(--ease) .8s both; }
 .hero__accent { animation: heroRise 2.4s var(--ease) 1.4s both; }
 .hero__lead { animation: heroRise 2.4s var(--ease) 1.9s both; }
+.hero__notice { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 18px; padding: 13px 18px; max-width: 460px; background: rgba(20,16,17,.66); border: 1px solid rgba(230,193,90,.45); border-radius: var(--r-md); backdrop-filter: blur(6px); color: var(--on-dark-2); font-size: 14px; line-height: 1.5; animation: heroRise 2.4s var(--ease) 1.9s both; }
+.hero__notice strong { color: var(--gold-light); font-weight: 700; }
+.hero__notice .dot { flex: none; width: 8px; height: 8px; margin-top: 7px; border-radius: 50%; background: var(--gold); }
 .hero__book { animation: heroRise 2.4s var(--ease) 2.3s both; }
 
 /* ============================================================
@@ -197,7 +200,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .reveal--right.in { transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal, .reveal--img, .word > span,
-  .hero__content .kicker-row, .hero__lockup, .hero__accent, .hero__lead, .hero__book { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; animation: none !important; }
+  .hero__content .kicker-row, .hero__lockup, .hero__accent, .hero__lead, .hero__notice, .hero__book { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; animation: none !important; }
   .hero__flame, .grain, .hero__cue .line::after { animation: none !important; }
 }
 
