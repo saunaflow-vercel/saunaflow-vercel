@@ -310,9 +310,11 @@ body.banner-dismissed { --banner-h: 0px; }
 @media (max-width: 1200px) { .plan-grid { grid-template-columns: repeat(3,1fr); } }
 @media (max-width: 980px) { .plan-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .plan-grid { grid-template-columns: 1fr; } }
-.plan-grid--trio { grid-template-columns: repeat(3,minmax(0,320px)); max-width: 1020px; margin: 0 auto; }
-@media (max-width: 900px) { .plan-grid--trio { grid-template-columns: 1fr 1fr; max-width: 680px; } }
-@media (max-width: 640px) { .plan-grid--trio { grid-template-columns: minmax(0,1fr); max-width: 360px; } }
+.plan-grid--quad { grid-template-columns: repeat(4,minmax(0,1fr)); max-width: 1240px; margin: 0 auto; }
+.plan-grid--quad .plan { padding: 34px 26px; }
+.plan__unit--pre { margin: 0 12px 0 0; }
+@media (max-width: 1360px) { .plan-grid--quad { grid-template-columns: 1fr 1fr; max-width: 700px; } }
+@media (max-width: 640px) { .plan-grid--quad { grid-template-columns: minmax(0,1fr); max-width: 360px; } }
 @media (max-width: 360px) { .plan__unit { font-size: 11px; letter-spacing: .08em; margin-left: 10px; }
   .plan .btn { white-space: normal; padding-inline: 16px; font-size: 16px; } }
 
