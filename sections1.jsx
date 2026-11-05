@@ -9,9 +9,9 @@ function splitWords(text) {
 const HERO_SLIDES = [
   { src: "assets/hero-ealing-oak.jpg", alt: "Sauna + Flow's sauna trailer beneath a large oak tree at Ealing Cricket Club", pos: "center 42%", posM: "18% 50%" },
   { src: "assets/hero-slide-trailer-plunge.jpg", alt: "The sauna trailer behind the cold plunge tub", pos: "50% 40%", posM: "50% 50%" },
-  { src: "assets/hero-slide-couple-drinks.jpg", alt: "Two guests sharing a drink after a session", pos: "50% 62%", posM: "55% 50%" },
+  { src: "assets/hero-slide-couple-drinks.jpg", alt: "Two guests sharing a drink after a session", pos: "50% 62%", posM: "78% 50%", hM: "140%", bM: "8%" },
   { src: "assets/hero-slide-sauna-bench.jpg", alt: "Sunlight on the cedar benches inside the sauna", pos: "50% 55%", posM: "50% 50%" },
-  { src: "assets/hero-slide-sauna-friends.jpg", alt: "Two friends smiling in the sauna", pos: "50% 45%", posM: "50% 50%" },
+  { src: "assets/hero-slide-sauna-friends.jpg", alt: "Two friends smiling in the sauna", pos: "50% 45%", posM: "93% 50%", hM: "120%", bM: "5.5%" },
   { src: "assets/hero-slide-ramp-bucket.jpg", alt: "Slides and a sauna bucket on the trailer ramp", pos: "50% 70%", posM: "50% 50%" },
   { src: "assets/hero-slide-sign-wall.jpg", alt: "The Sauna + Flow sign on the hessian screen", pos: "50% 72%", posM: "50% 50%" }
 ];
@@ -52,7 +52,7 @@ function Hero({ onBook }) {
     <header className="hero" ref={heroRef}>
       <div className="hero__bg" ref={bgRef}>
         {HERO_SLIDES.map((sl, i) =>
-        <img key={sl.src} className={"hero__slide" + (i === slide ? " on" : "")} src={i === 0 || slidesReady ? asset(sl.src) : undefined} alt={i === slide ? sl.alt : ""} aria-hidden={i !== slide} style={{ "--pos": sl.pos, "--posm": sl.posM }} />
+        <img key={sl.src} className={"hero__slide" + (i === slide ? " on" : "")} src={i === 0 || slidesReady ? asset(sl.src) : undefined} alt={i === slide ? sl.alt : ""} aria-hidden={i !== slide} style={{ "--pos": sl.pos, "--posm": sl.posM, "--hm": sl.hM, "--bm": sl.bM }} />
         )}
       </div>
       <div className="hero__scrim" /><div className="hero__grad" />
