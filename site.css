@@ -389,7 +389,7 @@ body.banner-dismissed { --banner-h: 0px; }
 .field input:focus ~ .uline, .field textarea:focus ~ .uline { transform: scaleX(1); }
 .field.err input, .field.err textarea { border-bottom-color: #e0586a; }
 .contact-grid .field--msg { display: flex; flex-direction: column; }
-.contact-grid .field--msg textarea { flex: 1; min-height: 140px; resize: none; }
+.contact-grid .field--msg textarea { flex: 1; min-height: 96px; resize: none; }
 .contact-actions { display: flex; justify-content: flex-end; }
 .contact-success { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .success-ring { width: 84px; height: 84px; border-radius: 50%; background: var(--gold-wash); display: grid; place-items: center; margin-bottom: 30px; }

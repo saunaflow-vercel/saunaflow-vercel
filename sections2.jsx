@@ -101,7 +101,7 @@ function Contact({ formRef }) {
   const submit = async (e) => {
     e.preventDefault();
     const f = e.currentTarget;
-    const vals = { name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim() };
+    const vals = { name: f.name.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(), message: f.message.value.trim() };
     const ne = {};
     if (!vals.name) ne.name = true;
     if (!vals.email) ne.email = true;
@@ -137,6 +137,7 @@ function Contact({ formRef }) {
               <div className={`field ${err.name ? "err" : ""}`}><label>Name <span style={{ color: "rgba(255,255,255,.4)" }}>*</span></label><input name="name" placeholder="Enter your name" /><span className="uline" /></div>
               <div className={`field ${err.email ? "err" : ""}`}><label>Email <span style={{ color: "rgba(255,255,255,.4)" }}>*</span></label><input name="email" type="email" placeholder="Enter your email" /><span className="uline" /></div>
               <div className="field"><label>Phone</label><input name="phone" placeholder="Enter your phone number" /><span className="uline" /></div>
+              <div className="field field--msg"><label>Comments</label><textarea name="message" placeholder="Leave us a comment or question" /><span className="uline" /></div>
             </div>
             <div className="contact-actions">
               <Button variant="primary" arrow magnetic>Send Enquiry</Button>
