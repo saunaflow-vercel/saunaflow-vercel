@@ -6,7 +6,26 @@ function splitWords(text) {
   );
 }
 
+const HERO_SLIDES = [
+  { src: "assets/hero-ealing-oak.jpg", alt: "Sauna + Flow's sauna trailer beneath a large oak tree at Ealing Cricket Club", pos: "center 42%", posM: "18% 50%" },
+  { src: "assets/hero-slide-trailer-plunge.jpg", alt: "The sauna trailer behind the cold plunge tub", pos: "50% 40%", posM: "50% 50%" },
+  { src: "assets/hero-slide-couple-drinks.jpg", alt: "Two guests sharing a drink after a session", pos: "50% 62%", posM: "55% 50%" },
+  { src: "assets/hero-slide-sauna-bench.jpg", alt: "Sunlight on the cedar benches inside the sauna", pos: "50% 55%", posM: "50% 50%" },
+  { src: "assets/hero-slide-sauna-friends.jpg", alt: "Two friends smiling in the sauna", pos: "50% 45%", posM: "50% 50%" },
+  { src: "assets/hero-slide-ramp-bucket.jpg", alt: "Slides and a sauna bucket on the trailer ramp", pos: "50% 70%", posM: "50% 50%" },
+  { src: "assets/hero-slide-sign-wall.jpg", alt: "The Sauna + Flow sign on the hessian screen", pos: "50% 72%", posM: "50% 50%" }
+];
+
 function Hero({ onBook }) {
+  const [slide, setSlide] = useState(0);
+  const [slidesReady, setSlidesReady] = useState(false);
+  useEffect(() => {
+    const ready = () => setSlidesReady(true);
+    if (document.readyState === "complete") ready(); else window.addEventListener("load", ready, { once: true });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setSlide((i) => (i + 1) % HERO_SLIDES.length), 6500);
+    return () => { clearInterval(t); window.removeEventListener("load", ready); };
+  }, []);
   const showClosure = Date.now() < new Date("2026-11-09T00:00:00").getTime();
   const heroRef = useRef(null),bgRef = useRef(null),contentRef = useRef(null);
   useEffect(() => {
@@ -31,7 +50,11 @@ function Hero({ onBook }) {
   }, []);
   return (
     <header className="hero" ref={heroRef}>
-      <div className="hero__bg" ref={bgRef}><img src={asset("assets/hero-ealing-oak.jpg")} alt="Sauna + Flow's sauna trailer beneath a large oak tree at Ealing Cricket Club" /></div>
+      <div className="hero__bg" ref={bgRef}>
+        {HERO_SLIDES.map((sl, i) =>
+        <img key={sl.src} className={"hero__slide" + (i === slide ? " on" : "")} src={i === 0 || slidesReady ? asset(sl.src) : undefined} alt={i === slide ? sl.alt : ""} aria-hidden={i !== slide} style={{ "--pos": sl.pos, "--posm": sl.posM }} />
+        )}
+      </div>
       <div className="hero__scrim" /><div className="hero__grad" />
       <div className="hero__content" ref={contentRef}>
         <div className="wrap">
